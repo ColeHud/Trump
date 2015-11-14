@@ -13,6 +13,10 @@ import CoreMotion
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
     // Private GameScene Properties
+    let lengthOfStrand = 3
+    let occurrence = UInt32(100)
+    let numberOfHairs = 25
+    
     
     var contentCreated = false
     var motionManager: CMMotionManager!
@@ -32,6 +36,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             self.createContent()
             self.contentCreated = true
         }
+        
+        //self.scene?.backgroundColor = UIColor.blueColor()
+        self.scene?.backgroundColor = UIColor(red: CGFloat(39.0/255.0), green: CGFloat(111.0/255.0), blue: CGFloat(191.0/255.0), alpha: 1.0)
     }
     
     func createContent()
@@ -56,7 +63,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         self.backgroundColor = UIColor.init(colorLiteralRed: 24.0, green: 48.0, blue: 89.0, alpha: 1.0)
         
         setUpPhysics()
-        setUpHair(trump)
+        
+        //set up the hair in the background thread
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            self.setUpHair(trump)
+        }
     }
     
     // Scene Update
@@ -65,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     {
         /* Called before each frame is rendered */
         if let accelerometerData = motionManager.accelerometerData {
-            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.x * 20, dy: accelerometerData.acceleration.y * 10)
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.x * 7, dy: accelerometerData.acceleration.y * 7)
         }
     }
     
@@ -80,7 +93,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     
     private func setUpHair(trump: SKSpriteNode)
     {
-        let length = 14 * Int(UIScreen.mainScreen().scale)
+        //print out values
+        /*
+        print("Texture Width: \((trump.texture?.size().width)!)")
+        print("Texture Height: \((trump.texture?.size().height)!)")
+        
+        print("Screen Width: \((myView?.bounds.size.width)!)")
+        print("Screen Height: \((myView?.bounds.size.height)!)")
+        */
+        
+        let length = lengthOfStrand * Int(UIScreen.mainScreen().scale)
         //let relAnchorPoint = CGPointMake(self.size.width/2, self.size.height/2)
         var relAnchorPoint = CGPointMake(trump.size.width/2, trump.size.height/2)
         
@@ -91,10 +113,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             var data = CFDataGetBytePtr(bitmapData);
             let bytesPerRow = CGImageGetBytesPerRow(image)
             let width = CGImageGetWidth(image)
-            let height = CGImageGetHeight(image);
+            let height = CGImageGetHeight(image)
             
-            var rawData = CGDataProviderCopyData(CGImageGetDataProvider(image));
-            var bufptr = CFDataGetBytePtr(rawData);
+            var rawData = CGDataProviderCopyData(CGImageGetDataProvider(image))
+            var bufptr = CFDataGetBytePtr(rawData)
+            
+            //coordinate point scaling
+            var xScaling = (myView?.bounds.size.width)! / (trump.texture?.size().width)!
+            var yScaling = (myView?.bounds.size.height)! / (trump.texture?.size().height)!
+            
+            //print("X Scaling: \(xScaling) Y Scaling: \(yScaling)")
             
             var hairs = 0
             for (var y = 0; y < height; y++)
@@ -103,14 +131,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 {
                     let alpha = bufptr[3]// components of each pixel
                 
-                    if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/5 && hairs < 15 && arc4random_uniform(10) == 1)
+                    if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/3 && hairs < numberOfHairs && arc4random_uniform(occurrence) == 1)
                     {
-                        let floatx = CGFloat(x)
-                        let floaty = CGFloat(y)
+                        let floatx = CGFloat((CGFloat(x)) * xScaling)
+                        let floaty = CGFloat((UIImage(CGImage: image).size.height - CGFloat(y)) * (1/yScaling)) - 15
+                        
+                        //print("x: \(floatx) y: \(floaty)")
                         
                         relAnchorPoint = CGPointMake(floatx, floaty)
                         let strand = HairNode(length: length, anchorPoint: relAnchorPoint, name: "Hairstrand")
-                        strand.addToScene(self)
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // update some UI
+                            strand.addToScene(self)
+                        }
                         hairs++
                     }
                 
@@ -121,9 +155,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         } else {
             // Fallback on earlier versions
         }
-        
-        let strand = HairNode(length: length, anchorPoint: relAnchorPoint, name: "Hairstrand")
-        strand.addToScene(self)
     }
 
 }

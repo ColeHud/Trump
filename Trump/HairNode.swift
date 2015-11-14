@@ -67,9 +67,9 @@ class HairNode: SKNode
         // add each of the rope parts
         for i in 0..<length {
             
-            let hairSegment = SKSpriteNode(imageNamed: "craziestHair")
-            hairSegment.size.height = hairSegment.size.height/10
-            hairSegment.size.width = hairSegment.size.width/6
+            let hairSegment = SKSpriteNode(imageNamed: "reallyTinyHair")
+            hairSegment.size.height = hairSegment.size.height
+            hairSegment.size.width = hairSegment.size.width
             let offset = hairSegment.size.height * CGFloat(i + 1)
             hairSegment.position = CGPointMake(anchorPoint.x, anchorPoint.y - offset)
             hairSegment.name = name
