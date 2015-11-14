@@ -14,8 +14,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 {
     // Private GameScene Properties
     let lengthOfStrand = 2
-    let occurrence = UInt32(325)
-    let numberOfHairs = 35
+    let occurrence = UInt32(200)
+    let numberOfHairs = 30
     
     
     var contentCreated = false
@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
         
         //self.scene?.backgroundColor = UIColor.blueColor()
-        self.scene?.backgroundColor = UIColor(red: CGFloat(39.0/255.0), green: CGFloat(111.0/255.0), blue: CGFloat(191.0/255.0), alpha: 1.0)
+        self.scene?.backgroundColor = UIColor(red: CGFloat(215.0/255.0), green: CGFloat(28.0/255.0), blue: CGFloat(61.0/255.0), alpha: 1.0)
     }
     
     func createContent()
@@ -59,8 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         self.addChild(trump)
         
-        // black space color
-        self.backgroundColor = UIColor.init(colorLiteralRed: 24.0, green: 48.0, blue: 89.0, alpha: 1.0)
         
         setUpPhysics()
         
@@ -70,6 +68,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             // do some task
             self.setUpHair(trump)
         }
+        
+        //add the eagle
+        let eagle = SKSpriteNode(imageNamed: "eagle")
+        eagle.size.width = (myView?.bounds.size.width)!
+        eagle.size.height = eagle.size.height/1.3
+        eagle.position = CGPoint(x: self.size.width/2, y: CGFloat(eagle.size.height/2))
+        eagle.zPosition = 2
+        
+        self.addChild(eagle)
+        
     }
     
     // Scene Update
