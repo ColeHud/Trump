@@ -52,20 +52,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     {
         /* Called before each frame is rendered */
         if let accelerometerData = motionManager.accelerometerData {
-            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.x * 20, dy: accelerometerData.acceleration.y * 10)
         }
     }
     
     private func setUpPhysics()
     {
+        /*
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVectorMake(0.0,-9.8)
         physicsWorld.speed = 1.0
+        */
     }
     
     private func setUpHair()
     {
-        let length = 12 * Int(UIScreen.mainScreen().scale)
+        let length = 7 * Int(UIScreen.mainScreen().scale)
         let relAnchorPoint = CGPointMake(self.size.width/2, self.size.height/2)
         
         let strand = HairNode(length: length, anchorPoint: relAnchorPoint, name: "Hairstrand")
