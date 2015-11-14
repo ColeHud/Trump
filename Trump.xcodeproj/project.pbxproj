@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		ED2B925E1BF72FC200375BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B925D1BF72FC200375BCC /* AppDelegate.swift */; };
-		ED2B92601BF72FC200375BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B925F1BF72FC200375BCC /* ViewController.swift */; };
 		ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92611BF72FC200375BCC /* Main.storyboard */; };
 		ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92641BF72FC200375BCC /* Assets.xcassets */; };
-		ED2B92681BF72FC200375BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92661BF72FC200375BCC /* LaunchScreen.storyboard */; };
+		ED2B92701BF75F8C00375BCC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B926F1BF75F8C00375BCC /* HomeViewController.swift */; };
+		ED2B92721BF7609100375BCC /* HairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B92711BF7609100375BCC /* HairViewController.swift */; };
+		ED2B92771BF76B9F00375BCC /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92731BF76B9F00375BCC /* Montserrat-Bold.ttf */; };
+		ED2B92781BF76B9F00375BCC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */; };
+		ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */; };
+		ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ED2B925A1BF72FC200375BCC /* Trump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2B925D1BF72FC200375BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED2B925F1BF72FC200375BCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED2B92621BF72FC200375BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED2B92641BF72FC200375BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ED2B92671BF72FC200375BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED2B92691BF72FC200375BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2B926F1BF75F8C00375BCC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ED2B92711BF7609100375BCC /* HairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HairViewController.swift; sourceTree = "<group>"; };
+		ED2B92731BF76B9F00375BCC /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "Trump/Fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "Trump/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OldStandard-Bold.ttf"; path = "Trump/Fonts/OldStandard-Bold.ttf"; sourceTree = "<group>"; };
+		ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OldStandard-Regular.ttf"; path = "Trump/Fonts/OldStandard-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +46,10 @@
 		ED2B92511BF72FC200375BCC = {
 			isa = PBXGroup;
 			children = (
+				ED2B92731BF76B9F00375BCC /* Montserrat-Bold.ttf */,
+				ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */,
+				ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */,
+				ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */,
 				ED2B925C1BF72FC200375BCC /* Trump */,
 				ED2B925B1BF72FC200375BCC /* Products */,
 			);
@@ -55,10 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				ED2B925D1BF72FC200375BCC /* AppDelegate.swift */,
-				ED2B925F1BF72FC200375BCC /* ViewController.swift */,
+				ED2B92711BF7609100375BCC /* HairViewController.swift */,
+				ED2B926F1BF75F8C00375BCC /* HomeViewController.swift */,
 				ED2B92611BF72FC200375BCC /* Main.storyboard */,
 				ED2B92641BF72FC200375BCC /* Assets.xcassets */,
-				ED2B92661BF72FC200375BCC /* LaunchScreen.storyboard */,
 				ED2B92691BF72FC200375BCC /* Info.plist */,
 			);
 			path = Trump;
@@ -122,7 +134,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2B92681BF72FC200375BCC /* LaunchScreen.storyboard in Resources */,
+				ED2B92771BF76B9F00375BCC /* Montserrat-Bold.ttf in Resources */,
+				ED2B92781BF76B9F00375BCC /* Montserrat-Regular.ttf in Resources */,
+				ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */,
+				ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */,
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,
 				ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */,
 			);
@@ -135,8 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2B92601BF72FC200375BCC /* ViewController.swift in Sources */,
 				ED2B925E1BF72FC200375BCC /* AppDelegate.swift in Sources */,
+				ED2B92701BF75F8C00375BCC /* HomeViewController.swift in Sources */,
+				ED2B92721BF7609100375BCC /* HairViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,14 +165,6 @@
 				ED2B92621BF72FC200375BCC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		ED2B92661BF72FC200375BCC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED2B92671BF72FC200375BCC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -250,6 +258,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Trump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colehudson.Trump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -261,6 +270,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Trump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colehudson.Trump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
