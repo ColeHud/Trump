@@ -24,6 +24,8 @@
 		ED2B92861BF7C1B500375BCC /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92851BF7C1B500375BCC /* launchScreen.storyboard */; };
 		ED2B92881BF7CBF000375BCC /* crazyHair.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92871BF7CBF000375BCC /* crazyHair.png */; };
 		ED2B928A1BF7CF5100375BCC /* reallyTinyHair.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92891BF7CF5100375BCC /* reallyTinyHair.png */; };
+		ED2B928C1BF7E93300375BCC /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928B1BF7E93300375BCC /* launchScreen.png */; };
+		ED2B928E1BF7ED4100375BCC /* partyintheusa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		ED2B92851BF7C1B500375BCC /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		ED2B92871BF7CBF000375BCC /* crazyHair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crazyHair.png; path = Assets.xcassets/craziestHair.imageset/crazyHair.png; sourceTree = "<group>"; };
 		ED2B92891BF7CF5100375BCC /* reallyTinyHair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reallyTinyHair.png; path = Assets.xcassets/reallyTinyHair.png; sourceTree = "<group>"; };
+		ED2B928B1BF7E93300375BCC /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchScreen.png; path = Assets.xcassets/launchScreen.png; sourceTree = "<group>"; };
+		ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = partyintheusa.mp3; path = Assets.xcassets/partyintheusa.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				ED2B92611BF72FC200375BCC /* Main.storyboard */,
 				ED2B92851BF7C1B500375BCC /* launchScreen.storyboard */,
 				ED2B92641BF72FC200375BCC /* Assets.xcassets */,
+				ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */,
+				ED2B928B1BF7E93300375BCC /* launchScreen.png */,
 				ED2B92891BF7CF5100375BCC /* reallyTinyHair.png */,
 				ED2B92871BF7CBF000375BCC /* crazyHair.png */,
 				ED2B92831BF79DC000375BCC /* hairHole.png */,
@@ -160,12 +166,14 @@
 			files = (
 				ED2B92841BF79DC000375BCC /* hairHole.png in Resources */,
 				ED2B92771BF76B9F00375BCC /* Montserrat-Bold.ttf in Resources */,
+				ED2B928E1BF7ED4100375BCC /* partyintheusa.mp3 in Resources */,
 				ED2B92881BF7CBF000375BCC /* crazyHair.png in Resources */,
 				ED2B92781BF76B9F00375BCC /* Montserrat-Regular.ttf in Resources */,
 				ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */,
 				ED2B927C1BF7779200375BCC /* noHair.png in Resources */,
 				ED2B928A1BF7CF5100375BCC /* reallyTinyHair.png in Resources */,
 				ED2B92861BF7C1B500375BCC /* launchScreen.storyboard in Resources */,
+				ED2B928C1BF7E93300375BCC /* launchScreen.png in Resources */,
 				ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */,
 				ED2B92821BF7935600375BCC /* crazyHair.png in Resources */,
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,

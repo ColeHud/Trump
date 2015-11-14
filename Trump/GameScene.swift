@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import CoreMotion
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
@@ -22,12 +23,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var motionManager: CMMotionManager!
     
     var myView: SKView?
+    var audioPlayer: AVAudioPlayer?
     
     // Object Lifecycle Management
+    
     
     // Scene Setup and Content Creation
     override func didMoveToView(view: SKView)
     {
+        //audio
+        let soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("partyintheusa", ofType: "mp3")!)
+        var audioPlayer = AVAudioPlayer()
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOfURL: soundtrack, fileTypeHint: "mp3")
+            audioPlayer.numberOfLoops = -1
+            //audioPlayer.prepareToPlay()
+        }catch{
+            print("Error playing audio")
+        }
+        
         motionManager = CMMotionManager()
         motionManager.startAccelerometerUpdates()
         if (!self.contentCreated)
@@ -39,6 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         //self.scene?.backgroundColor = UIColor.blueColor()
         self.scene?.backgroundColor = UIColor(red: CGFloat(215.0/255.0), green: CGFloat(28.0/255.0), blue: CGFloat(61.0/255.0), alpha: 1.0)
+        
+        //reference and play
+        self.audioPlayer = audioPlayer
+        audioPlayer.play()
     }
     
     func createContent()
