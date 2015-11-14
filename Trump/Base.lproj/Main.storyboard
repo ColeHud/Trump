@@ -80,7 +80,7 @@
                         <viewControllerLayoutGuide type="top" id="3DQ-Mx-bgl"/>
                         <viewControllerLayoutGuide type="bottom" id="UA4-Hu-cAQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FcM-4Z-6rR">
+                    <view key="view" contentMode="scaleToFill" id="FcM-4Z-6rR" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>

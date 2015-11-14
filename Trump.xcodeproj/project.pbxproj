@@ -16,6 +16,9 @@
 		ED2B92781BF76B9F00375BCC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */; };
 		ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */; };
 		ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */; };
+		ED2B927C1BF7779200375BCC /* noHair.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B927B1BF7779200375BCC /* noHair.png */; };
+		ED2B927E1BF7846000375BCC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B927D1BF7846000375BCC /* GameScene.swift */; };
+		ED2B92801BF78B8D00375BCC /* HairNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B927F1BF78B8D00375BCC /* HairNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "Trump/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OldStandard-Bold.ttf"; path = "Trump/Fonts/OldStandard-Bold.ttf"; sourceTree = "<group>"; };
 		ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OldStandard-Regular.ttf"; path = "Trump/Fonts/OldStandard-Regular.ttf"; sourceTree = "<group>"; };
+		ED2B927B1BF7779200375BCC /* noHair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noHair.png; path = Assets.xcassets/noHair.png; sourceTree = "<group>"; };
+		ED2B927D1BF7846000375BCC /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		ED2B927F1BF78B8D00375BCC /* HairNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HairNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +74,12 @@
 			children = (
 				ED2B925D1BF72FC200375BCC /* AppDelegate.swift */,
 				ED2B92711BF7609100375BCC /* HairViewController.swift */,
+				ED2B927D1BF7846000375BCC /* GameScene.swift */,
+				ED2B927F1BF78B8D00375BCC /* HairNode.swift */,
 				ED2B926F1BF75F8C00375BCC /* HomeViewController.swift */,
 				ED2B92611BF72FC200375BCC /* Main.storyboard */,
 				ED2B92641BF72FC200375BCC /* Assets.xcassets */,
+				ED2B927B1BF7779200375BCC /* noHair.png */,
 				ED2B92691BF72FC200375BCC /* Info.plist */,
 			);
 			path = Trump;
@@ -137,6 +146,7 @@
 				ED2B92771BF76B9F00375BCC /* Montserrat-Bold.ttf in Resources */,
 				ED2B92781BF76B9F00375BCC /* Montserrat-Regular.ttf in Resources */,
 				ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */,
+				ED2B927C1BF7779200375BCC /* noHair.png in Resources */,
 				ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */,
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,
 				ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */,
@@ -151,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2B925E1BF72FC200375BCC /* AppDelegate.swift in Sources */,
+				ED2B92801BF78B8D00375BCC /* HairNode.swift in Sources */,
 				ED2B92701BF75F8C00375BCC /* HomeViewController.swift in Sources */,
+				ED2B927E1BF7846000375BCC /* GameScene.swift in Sources */,
 				ED2B92721BF7609100375BCC /* HairViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
