@@ -13,9 +13,9 @@ import CoreMotion
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
     // Private GameScene Properties
-    let lengthOfStrand = 3
-    let occurrence = UInt32(100)
-    let numberOfHairs = 25
+    let lengthOfStrand = 2
+    let occurrence = UInt32(325)
+    let numberOfHairs = 35
     
     
     var contentCreated = false
@@ -131,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 {
                     let alpha = bufptr[3]// components of each pixel
                 
-                    if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/3 && hairs < numberOfHairs && arc4random_uniform(occurrence) == 1)
+                    if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/5 && hairs < numberOfHairs && arc4random_uniform(occurrence) == 1)
                     {
                         let floatx = CGFloat((CGFloat(x)) * xScaling)
                         let floaty = CGFloat((UIImage(CGImage: image).size.height - CGFloat(y)) * (1/yScaling)) - 15
@@ -154,6 +154,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             
         } else {
             // Fallback on earlier versions
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            
+            let touch = touch as! UITouch
+            let startPoint = touch.locationInNode(self)
+            let endPoint = touch.previousLocationInNode(self)
+            
+            var node = self.nodeAtPoint(startPoint)
+            
+            var dx = startPoint.x - endPoint.x
+            var dy = startPoint.y - endPoint.y
+            
+            node.physicsBody?.applyImpulse(CGVectorMake(dx, dy))
+            
+            // check if rope cut
+            scene?.physicsWorld.enumerateBodiesAlongRayStart(startPoint, end: endPoint, usingBlock: { (body, point, normal, stop) -> Void in
+            })
         }
     }
 
