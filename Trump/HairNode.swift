@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 
+
 struct Layer {
     static let Background: CGFloat = 0
     static let Hair: CGFloat = 1

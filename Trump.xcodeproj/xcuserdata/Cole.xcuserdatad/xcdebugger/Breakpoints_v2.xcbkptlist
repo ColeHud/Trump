@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trump/GameScene.swift"
-            timestampString = "469248453.155908"
+            timestampString = "469255590.3895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "removeChildren(_:)"
             landmarkType = "5">
          </BreakpointContent>

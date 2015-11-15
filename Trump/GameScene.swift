@@ -11,6 +11,7 @@ import SpriteKit
 import CoreMotion
 import AVFoundation
 
+
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
     // Private GameScene Properties
@@ -48,7 +49,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         //if it exists, get old score
         let defaults = NSUserDefaults.standardUserDefaults()
         let defaultScore = defaults.integerForKey("trumpScore")
+        let defaultCurrentGoal = defaults.integerForKey("trumpGoal")
         self.myScore = defaultScore
+        self.currentGoal = defaultCurrentGoal
         
         //audio
         let soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("partyintheusa", ofType: "mp3")!)
@@ -160,51 +163,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         var relAnchorPoint = CGPointMake(trump.size.width/2, trump.size.height/2)
         
         //get all pixels above a certain line that isn't white
-        if #available(iOS 9.0, *) {
-            let image = (trump.texture?.CGImage)!
-            let width = CGImageGetWidth(image)
-            let height = CGImageGetHeight(image)
-            
-            let rawData = CGDataProviderCopyData(CGImageGetDataProvider(image))
-            var bufptr = CFDataGetBytePtr(rawData)
-            
-            //coordinate point scaling
-            let xScaling = (myView?.bounds.size.width)! / (trump.texture?.size().width)!
-            let yScaling = (myView?.bounds.size.height)! / (trump.texture?.size().height)!
-            
-            //print("X Scaling: \(xScaling) Y Scaling: \(yScaling)")
-            
-            var hairs = 0
-            for (var y = 0; y < height; y++)
+        let image = (trump.texture?.CGImage)!
+        let width = CGImageGetWidth(image)
+        let height = CGImageGetHeight(image)
+        
+        let rawData = CGDataProviderCopyData(CGImageGetDataProvider(image))
+        var bufptr = CFDataGetBytePtr(rawData)
+        
+        //coordinate point scaling
+        let xScaling = (myView?.bounds.size.width)! / (trump.texture?.size().width)!
+        let yScaling = (myView?.bounds.size.height)! / (trump.texture?.size().height)!
+        
+        //print("X Scaling: \(xScaling) Y Scaling: \(yScaling)")
+        
+        var hairs = 0
+        for (var y = 0; y < height; y++)
+        {
+            for (var x = 0; x < width; x++ )
             {
-                for (var x = 0; x < width; x++ )
+                let alpha = bufptr[3]// components of each pixel
+                
+                if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/5 && hairs < numberOfHairs && arc4random_uniform(occurrence) == 1)
                 {
-                    let alpha = bufptr[3]// components of each pixel
-                
-                    if(alpha == 255 && CGFloat(y) < UIImage(CGImage: image).size.height/5 && hairs < numberOfHairs && arc4random_uniform(occurrence) == 1)
-                    {
-                        let floatx = CGFloat((CGFloat(x)) * xScaling)
-                        let floaty = CGFloat((UIImage(CGImage: image).size.height - CGFloat(y)) * (1/yScaling)) - 15
-                        
-                        //print("x: \(floatx) y: \(floaty)")
-                        
-                        relAnchorPoint = CGPointMake(floatx, floaty)
-                        let strand = HairNode(length: length, anchorPoint: relAnchorPoint, name: "Hairstrand")
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            // update some UI
-                            strand.addToScene(self)
-                        }
-                        hairs++
+                    let floatx = CGFloat((CGFloat(x)) * xScaling)
+                    let floaty = CGFloat((UIImage(CGImage: image).size.height - CGFloat(y)) * (1/yScaling)) - 15
+                    
+                    //print("x: \(floatx) y: \(floaty)")
+                    
+                    relAnchorPoint = CGPointMake(floatx, floaty)
+                    let strand = HairNode(length: length, anchorPoint: relAnchorPoint, name: "Hairstrand")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        // update some UI
+                        strand.addToScene(self)
                     }
-                
-                    bufptr += 4;
+                    hairs++
                 }
+                
+                bufptr += 4;
             }
-            
-        } else {
-            // Fallback on earlier versions
         }
+        
     }
     
     func removeChildren(timer: NSTimer)
@@ -215,7 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             
-            let touch = touch 
+            let touch = touch
             let startPoint = touch.locationInNode(self)
             let endPoint = touch.previousLocationInNode(self)
             
@@ -233,6 +232,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 //update the label
                 self.myScoreLabel.text = "\(self.myScore)"
                 //self.myScoreLabel.position = CGPoint(x: self.size.width - self.myScoreLabel.frame.size.width - 20, y: self.size.height - self.myScoreLabel.frame.size.width - 30)
+                
+                //save info every 10th touch
+                if(self.myScore % 10 == 0)
+                {
+                    //save current data
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setValue(self.myScore, forKey: "trumpScore")
+                    defaults.setValue(self.currentGoal, forKey:"trumpGoal")
+                    defaults.synchronize()
+                }
+                
                 
                 if(self.awardBools[self.currentGoal] == false && self.myScore >= self.awardNumbers[self.currentGoal])
                 {
@@ -293,17 +303,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     //reference and play
                     self.audioPlayer = audioPlayer
                     audioPlayer.play()
-
+                    
                     
                     self.currentGoal++
                     
                     //save current data
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setValue(self.myScore, forKey: "trumpScore")
+                    defaults.setValue(self.currentGoal, forKey:"trumpGoal")
                     defaults.synchronize()
                 }
             })
         }
     }
-
+    
 }

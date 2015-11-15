@@ -20,6 +20,25 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>8964762aeb97716c5cc90b5752bf707650a5e1a2</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>BUP7OAUXYLYcuOudcQeuSowvm</string>
+					<key>consumerSecret</key>
+					<string>kTA0VLoWZBU2K163DGPnowW1SifAx173cCoMA07YghWMwFvc9d</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
 	<key>Fonts provided by application</key>
 	<array>
 		<string></string>

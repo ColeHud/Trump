@@ -30,6 +30,13 @@
 		ED2B92971BF8223700375BCC /* Fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92951BF8223700375BCC /* Fireworks.sks */; };
 		ED2B92981BF8223700375BCC /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92961BF8223700375BCC /* spark.png */; };
 		ED2B929A1BF82B4600375BCC /* fireworks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92991BF82B4600375BCC /* fireworks.mp3 */; };
+		ED2B92B31BF832DC00375BCC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2B92AF1BF832DC00375BCC /* Fabric.framework */; };
+		ED2B92B41BF832DC00375BCC /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2B92B01BF832DC00375BCC /* TwitterKit.framework */; };
+		ED2B92B51BF832DC00375BCC /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92B11BF832DC00375BCC /* TwitterKitResources.bundle */; };
+		ED2B92B61BF832DC00375BCC /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2B92B21BF832DC00375BCC /* TwitterCore.framework */; };
+		ED2B92B71BF8333100375BCC /* Fabric.framework in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92AF1BF832DC00375BCC /* Fabric.framework */; };
+		ED2B92B81BF8333100375BCC /* TwitterKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92B01BF832DC00375BCC /* TwitterKit.framework */; };
+		ED2B92B91BF8333100375BCC /* TwitterCore.framework in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92B21BF832DC00375BCC /* TwitterCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +65,10 @@
 		ED2B92951BF8223700375BCC /* Fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireworks.sks; sourceTree = "<group>"; };
 		ED2B92961BF8223700375BCC /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		ED2B92991BF82B4600375BCC /* fireworks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = fireworks.mp3; path = ../../../../../Downloads/fireworks.mp3; sourceTree = "<group>"; };
+		ED2B92AF1BF832DC00375BCC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		ED2B92B01BF832DC00375BCC /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		ED2B92B11BF832DC00375BCC /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		ED2B92B21BF832DC00375BCC /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2B92B31BF832DC00375BCC /* Fabric.framework in Frameworks */,
+				ED2B92B61BF832DC00375BCC /* TwitterCore.framework in Frameworks */,
+				ED2B92B41BF832DC00375BCC /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,10 @@
 				ED2B92741BF76B9F00375BCC /* Montserrat-Regular.ttf */,
 				ED2B92751BF76B9F00375BCC /* OldStandard-Bold.ttf */,
 				ED2B92761BF76B9F00375BCC /* OldStandard-Regular.ttf */,
+				ED2B92AF1BF832DC00375BCC /* Fabric.framework */,
+				ED2B92B01BF832DC00375BCC /* TwitterKit.framework */,
+				ED2B92B11BF832DC00375BCC /* TwitterKitResources.bundle */,
+				ED2B92B21BF832DC00375BCC /* TwitterCore.framework */,
 				ED2B925C1BF72FC200375BCC /* Trump */,
 				ED2B925B1BF72FC200375BCC /* Products */,
 			);
@@ -128,6 +146,7 @@
 				ED2B92561BF72FC200375BCC /* Sources */,
 				ED2B92571BF72FC200375BCC /* Frameworks */,
 				ED2B92581BF72FC200375BCC /* Resources */,
+				ED2B929B1BF82FCB00375BCC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -195,10 +214,30 @@
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,
 				ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */,
 				ED2B92981BF8223700375BCC /* spark.png in Resources */,
+				ED2B92B71BF8333100375BCC /* Fabric.framework in Resources */,
+				ED2B92B81BF8333100375BCC /* TwitterKit.framework in Resources */,
+				ED2B92B51BF832DC00375BCC /* TwitterKitResources.bundle in Resources */,
+				ED2B92B91BF8333100375BCC /* TwitterCore.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ED2B929B1BF82FCB00375BCC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8964762aeb97716c5cc90b5752bf707650a5e1a2 a3f7386b9fddb353cf1a670b1c0a739af7cd5ab8c15d3b83bdb1ef1c3a8b5eba";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED2B92561BF72FC200375BCC /* Sources */ = {
@@ -316,8 +355,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Trump/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colehudson.Trump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -331,8 +374,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Trump/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colehudson.Trump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
