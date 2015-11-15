@@ -46,6 +46,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     // Scene Setup and Content Creation
     override func didMoveToView(view: SKView)
     {
+        //if it exists, get old score
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaultScore = defaults.integerForKey("trumpScore")
+        self.myScore = defaultScore
+        
         //audio
         let soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("partyintheusa", ofType: "mp3")!)
         var audioPlayer = AVAudioPlayer()
@@ -229,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 {
                     self.awardBools[self.currentGoal] = true
                     
-                    var myAlert = UIAlertView(title: "Congratulations", message: self.awardNames[self.currentGoal], delegate: self, cancelButtonTitle: "Trump")
+                    let myAlert = UIAlertView(title: "Congratulations", message: self.awardNames[self.currentGoal], delegate: self, cancelButtonTitle: "Trump")
                     //var alert = UIAlertController(title: "Congratulations", message: self.awardNames[self.currentGoal], preferredStyle: UIAlertControllerStyle.Alert)
                     //alert.addAction(UIAlertAction(title: "Trump's da bomb", style: UIAlertActionStyle.Default, handler: nil))
                     //presentViewController(alert, animated: true, completion: nil)
@@ -262,6 +267,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 
                     
                     self.currentGoal++
+                    
+                    //save current data
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setValue(self.myScore, forKey: "trumpScore")
+                    defaults.synchronize()
                 }
             })
         }
