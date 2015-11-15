@@ -27,6 +27,8 @@
 		ED2B928C1BF7E93300375BCC /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928B1BF7E93300375BCC /* launchScreen.png */; };
 		ED2B928E1BF7ED4100375BCC /* partyintheusa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */; };
 		ED2B92901BF815F700375BCC /* wearethechampions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928F1BF815F700375BCC /* wearethechampions.mp3 */; };
+		ED2B92971BF8223700375BCC /* Fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92951BF8223700375BCC /* Fireworks.sks */; };
+		ED2B92981BF8223700375BCC /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92961BF8223700375BCC /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		ED2B928B1BF7E93300375BCC /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchScreen.png; path = Assets.xcassets/launchScreen.png; sourceTree = "<group>"; };
 		ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = partyintheusa.mp3; path = Assets.xcassets/partyintheusa.mp3; sourceTree = "<group>"; };
 		ED2B928F1BF815F700375BCC /* wearethechampions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wearethechampions.mp3; path = Assets.xcassets/wearethechampions.mp3; sourceTree = "<group>"; };
+		ED2B92951BF8223700375BCC /* Fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireworks.sks; sourceTree = "<group>"; };
+		ED2B92961BF8223700375BCC /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 				ED2B925D1BF72FC200375BCC /* AppDelegate.swift */,
 				ED2B92711BF7609100375BCC /* HairViewController.swift */,
 				ED2B927D1BF7846000375BCC /* GameScene.swift */,
+				ED2B92951BF8223700375BCC /* Fireworks.sks */,
+				ED2B92961BF8223700375BCC /* spark.png */,
 				ED2B927F1BF78B8D00375BCC /* HairNode.swift */,
 				ED2B926F1BF75F8C00375BCC /* HomeViewController.swift */,
 				ED2B92611BF72FC200375BCC /* Main.storyboard */,
@@ -176,6 +182,7 @@
 				ED2B92791BF76B9F00375BCC /* OldStandard-Bold.ttf in Resources */,
 				ED2B927C1BF7779200375BCC /* noHair.png in Resources */,
 				ED2B928A1BF7CF5100375BCC /* reallyTinyHair.png in Resources */,
+				ED2B92971BF8223700375BCC /* Fireworks.sks in Resources */,
 				ED2B92861BF7C1B500375BCC /* launchScreen.storyboard in Resources */,
 				ED2B928C1BF7E93300375BCC /* launchScreen.png in Resources */,
 				ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */,
@@ -183,6 +190,7 @@
 				ED2B92821BF7935600375BCC /* crazyHair.png in Resources */,
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,
 				ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */,
+				ED2B92981BF8223700375BCC /* spark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,7 +42,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     
     // Object Lifecycle Management
     
-    
     // Scene Setup and Content Creation
     override func didMoveToView(view: SKView)
     {
@@ -208,6 +207,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
+    func removeChildren(timer: NSTimer)
+    {
+        removeChildrenInArray([timer.userInfo as! SKEmitterNode])
+    }
+    
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             
@@ -232,6 +236,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 
                 if(self.awardBools[self.currentGoal] == false && self.myScore >= self.awardNumbers[self.currentGoal])
                 {
+                    //make fireworks
+                    var emitter = NSKeyedUnarchiver.unarchiveObjectWithFile(NSBundle.mainBundle().pathForResource("Fireworks", ofType: "sks")!) as! SKEmitterNode
+                    emitter.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+                    
+                    self.addChild(emitter)
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "removeChildren:", userInfo: emitter, repeats: true)
+                    
+                    
                     self.awardBools[self.currentGoal] = true
                     
                     let myAlert = UIAlertView(title: "Congratulations", message: self.awardNames[self.currentGoal], delegate: self, cancelButtonTitle: "Trump")
