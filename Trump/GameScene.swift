@@ -240,6 +240,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     var emitter = NSKeyedUnarchiver.unarchiveObjectWithFile(NSBundle.mainBundle().pathForResource("Fireworks", ofType: "sks")!) as! SKEmitterNode
                     emitter.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
                     
+                    // firework audio
+                    var soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fireworks", ofType: "mp3")!)
+                    var audioPlayer = AVAudioPlayer()
+                    do{
+                        audioPlayer = try AVAudioPlayer(contentsOfURL: soundtrack, fileTypeHint: "mp3")
+                        audioPlayer.volume = 1.0
+                        audioPlayer.numberOfLoops = 1
+                        //audioPlayer.prepareToPlay()
+                    }catch{
+                        print("Error playing audio")
+                    }
+                    
+                    //reference and play
+                    self.audioPlayer = audioPlayer
+                    audioPlayer.play()
+                    
+                    //firework
                     self.addChild(emitter)
                     var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "removeChildren:", userInfo: emitter, repeats: true)
                     
@@ -263,8 +280,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     //start playing a new (random) song
                     let random = arc4random_uniform(UInt32(self.songs.count))
                     
-                    let soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(self.songs[Int(random)], ofType: "mp3")!)
-                    var audioPlayer = AVAudioPlayer()
+                    soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(self.songs[Int(random)], ofType: "mp3")!)
+                    audioPlayer = AVAudioPlayer()
                     do{
                         audioPlayer = try AVAudioPlayer(contentsOfURL: soundtrack, fileTypeHint: "mp3")
                         audioPlayer.numberOfLoops = -1

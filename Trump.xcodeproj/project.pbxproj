@@ -29,6 +29,7 @@
 		ED2B92901BF815F700375BCC /* wearethechampions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B928F1BF815F700375BCC /* wearethechampions.mp3 */; };
 		ED2B92971BF8223700375BCC /* Fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92951BF8223700375BCC /* Fireworks.sks */; };
 		ED2B92981BF8223700375BCC /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92961BF8223700375BCC /* spark.png */; };
+		ED2B929A1BF82B4600375BCC /* fireworks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED2B92991BF82B4600375BCC /* fireworks.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		ED2B928F1BF815F700375BCC /* wearethechampions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wearethechampions.mp3; path = Assets.xcassets/wearethechampions.mp3; sourceTree = "<group>"; };
 		ED2B92951BF8223700375BCC /* Fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireworks.sks; sourceTree = "<group>"; };
 		ED2B92961BF8223700375BCC /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		ED2B92991BF82B4600375BCC /* fireworks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = fireworks.mp3; path = ../../../../../Downloads/fireworks.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				ED2B92611BF72FC200375BCC /* Main.storyboard */,
 				ED2B92851BF7C1B500375BCC /* launchScreen.storyboard */,
 				ED2B92641BF72FC200375BCC /* Assets.xcassets */,
+				ED2B92991BF82B4600375BCC /* fireworks.mp3 */,
 				ED2B928F1BF815F700375BCC /* wearethechampions.mp3 */,
 				ED2B928D1BF7ED4100375BCC /* partyintheusa.mp3 */,
 				ED2B928B1BF7E93300375BCC /* launchScreen.png */,
@@ -187,6 +190,7 @@
 				ED2B928C1BF7E93300375BCC /* launchScreen.png in Resources */,
 				ED2B927A1BF76BA000375BCC /* OldStandard-Regular.ttf in Resources */,
 				ED2B92901BF815F700375BCC /* wearethechampions.mp3 in Resources */,
+				ED2B929A1BF82B4600375BCC /* fireworks.mp3 in Resources */,
 				ED2B92821BF7935600375BCC /* crazyHair.png in Resources */,
 				ED2B92651BF72FC200375BCC /* Assets.xcassets in Resources */,
 				ED2B92631BF72FC200375BCC /* Main.storyboard in Resources */,
