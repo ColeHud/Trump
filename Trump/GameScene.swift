@@ -258,7 +258,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     
                     //firework
                     self.addChild(emitter)
-                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "removeChildren:", userInfo: emitter, repeats: true)
+                    let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "removeChildren:", userInfo: emitter, repeats: true)
                     
                     
                     self.awardBools[self.currentGoal] = true
