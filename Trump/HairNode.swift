@@ -70,7 +70,7 @@ class HairNode: SKNode
             
             let hairSegment = SKSpriteNode(imageNamed: "reallyTinyHair")
             hairSegment.size.height = hairSegment.size.height
-            hairSegment.size.width = hairSegment.size.width
+            hairSegment.size.width = hairSegment.size.width * 1.5
             let offset = hairSegment.size.height * CGFloat(i + 1)
             hairSegment.position = CGPointMake(anchorPoint.x, anchorPoint.y - offset)
             hairSegment.name = name
