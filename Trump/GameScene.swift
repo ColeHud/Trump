@@ -10,15 +10,18 @@ import UIKit
 import SpriteKit
 import CoreMotion
 import AVFoundation
+import Fabric
+import TwitterKit
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
+    var viewController: HairViewController?
+    
     // Private GameScene Properties
     let lengthOfStrand = 2
     let occurrence = UInt32(200)
     let numberOfHairs = 30
-    
     
     var contentCreated = false
     var motionManager: CMMotionManager!
@@ -41,7 +44,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     //songs
     var songs = ["partyintheusa", "wearethechampions"]
     
-    // Object Lifecycle Management
     
     // Scene Setup and Content Creation
     override func didMoveToView(view: SKView)
@@ -304,6 +306,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     self.audioPlayer = audioPlayer
                     audioPlayer.play()
                     
+                    //send tweet to the donald
+                    // Swift
+                    let composer = TWTRComposer()
+                    
+                    composer.setText("@realDonaldTrump \(self.awardNames[self.currentGoal])")
+                    
+                    // Called from a UIViewController
+                    composer.showFromViewController(self.viewController!) { result in
+                        if (result == TWTRComposerResult.Cancelled) {
+                            print("Tweet composition cancelled")
+                        }
+                        else {
+                            print("Sending tweet!")
+                        }
+                    }
                     
                     self.currentGoal++
                     

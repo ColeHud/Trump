@@ -27,6 +27,7 @@ class HairViewController: UIViewController
         
         // Create and configure the scene.
         let scene = GameScene(size: skView.frame.size)
+        scene.viewController = self
         skView.presentScene(scene)
         
         // Pause the view (and thus the game) when the app is interrupted or backgrounded
