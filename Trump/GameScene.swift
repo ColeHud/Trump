@@ -25,6 +25,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var myView: SKView?
     var audioPlayer: AVAudioPlayer?
     
+    var myScore = 0
+    var myScoreLabel: SKLabelNode = SKLabelNode()
+    
     // Object Lifecycle Management
     
     
@@ -96,6 +99,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         self.addChild(eagle)
         
+        //current score
+        myScoreLabel = SKLabelNode(text: "\(self.myScore)")
+        myScoreLabel.name = "myScore"
+        myScoreLabel.fontSize = 20
+        myScoreLabel.fontName = "Montserrat-Regular"
+        myScoreLabel.position = CGPoint(x: self.size.width - myScoreLabel.frame.size.width - 20, y: self.size.height - myScoreLabel.frame.size.width - 30)
+        self.addChild(myScoreLabel)
+        
     }
     
     // Scene Update
@@ -134,19 +145,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         //get all pixels above a certain line that isn't white
         if #available(iOS 9.0, *) {
-            var image = (trump.texture?.CGImage)!
-            var bitmapData = CGDataProviderCopyData(CGImageGetDataProvider(image))
-            var data = CFDataGetBytePtr(bitmapData);
-            let bytesPerRow = CGImageGetBytesPerRow(image)
+            let image = (trump.texture?.CGImage)!
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
             
-            var rawData = CGDataProviderCopyData(CGImageGetDataProvider(image))
+            let rawData = CGDataProviderCopyData(CGImageGetDataProvider(image))
             var bufptr = CFDataGetBytePtr(rawData)
             
             //coordinate point scaling
-            var xScaling = (myView?.bounds.size.width)! / (trump.texture?.size().width)!
-            var yScaling = (myView?.bounds.size.height)! / (trump.texture?.size().height)!
+            let xScaling = (myView?.bounds.size.width)! / (trump.texture?.size().width)!
+            let yScaling = (myView?.bounds.size.height)! / (trump.texture?.size().height)!
             
             //print("X Scaling: \(xScaling) Y Scaling: \(yScaling)")
             
@@ -186,19 +194,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             
-            let touch = touch as! UITouch
+            let touch = touch 
             let startPoint = touch.locationInNode(self)
             let endPoint = touch.previousLocationInNode(self)
             
-            var node = self.nodeAtPoint(startPoint)
+            let node = self.nodeAtPoint(startPoint)
             
-            var dx = startPoint.x - endPoint.x
-            var dy = startPoint.y - endPoint.y
+            let dx = (startPoint.x - endPoint.x)*1.3
+            let dy = (startPoint.y - endPoint.y)*1.3
             
             node.physicsBody?.applyImpulse(CGVectorMake(dx, dy))
             
             // check if rope cut
             scene?.physicsWorld.enumerateBodiesAlongRayStart(startPoint, end: endPoint, usingBlock: { (body, point, normal, stop) -> Void in
+                print("Collission")
+                self.myScore++
+                
+                //update the label
+                self.myScoreLabel.text = "\(self.myScore)"
+                //self.myScoreLabel.position = CGPoint(x: self.size.width - self.myScoreLabel.frame.size.width - 20, y: self.size.height - self.myScoreLabel.frame.size.width - 30)
             })
         }
     }
