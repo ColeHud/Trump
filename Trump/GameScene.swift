@@ -28,6 +28,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var myScore = 0
     var myScoreLabel: SKLabelNode = SKLabelNode()
     
+    //awards
+    var awardNumbers = [1000, 10000, 20000, 30000, 50000, 100000]
+    var awardNames = ["Won GOP nomination", "Won Presidential election", "Deported ALL Illegal Immigrants", "Built the Great Wall of Trump", "Attended Hillary's Funeral", "Made America Great Again!!!"]
+    var awardBools = [false, false, false, false, false, false]
+    var currentGoal = 0
+    
+    
     // Object Lifecycle Management
     
     
@@ -213,6 +220,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 //update the label
                 self.myScoreLabel.text = "\(self.myScore)"
                 //self.myScoreLabel.position = CGPoint(x: self.size.width - self.myScoreLabel.frame.size.width - 20, y: self.size.height - self.myScoreLabel.frame.size.width - 30)
+                
+                if(self.awardBools[self.currentGoal] == false && self.myScore >= self.awardNumbers[self.currentGoal])
+                {
+                    self.awardBools[self.currentGoal] = true
+                    
+                    var myAlert = UIAlertView(title: "Congratulations", message: self.awardNames[self.currentGoal], delegate: self, cancelButtonTitle: "Trump")
+                    //var alert = UIAlertController(title: "Congratulations", message: self.awardNames[self.currentGoal], preferredStyle: UIAlertControllerStyle.Alert)
+                    //alert.addAction(UIAlertAction(title: "Trump's da bomb", style: UIAlertActionStyle.Default, handler: nil))
+                    //presentViewController(alert, animated: true, completion: nil)
+                    myAlert.show()
+                    
+                    self.currentGoal++
+                }
             })
         }
     }
