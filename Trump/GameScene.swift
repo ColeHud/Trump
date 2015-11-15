@@ -34,6 +34,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var awardBools = [false, false, false, false, false, false]
     var currentGoal = 0
     
+    //background colors
+    var backgroundColors = [[215.0, 38.0, 61.0], [215.0, 205.0, 204.0], [246.0, 244.0, 243.0], [39.0, 111.0, 191.0], [24.0, 48.0, 89.0]]
+    
+    //songs
+    var songs = ["partyintheusa", "wearethechampions"]
     
     // Object Lifecycle Management
     
@@ -212,9 +217,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             
             node.physicsBody?.applyImpulse(CGVectorMake(dx, dy))
             
-            // check if rope cut
+            // check for collissions
             scene?.physicsWorld.enumerateBodiesAlongRayStart(startPoint, end: endPoint, usingBlock: { (body, point, normal, stop) -> Void in
-                print("Collission")
                 self.myScore++
                 
                 //update the label
@@ -230,6 +234,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     //alert.addAction(UIAlertAction(title: "Trump's da bomb", style: UIAlertActionStyle.Default, handler: nil))
                     //presentViewController(alert, animated: true, completion: nil)
                     myAlert.show()
+                    
+                    //change the bg to a random color of the color scheme
+                    let rand = arc4random_uniform(UInt32(self.backgroundColors.count))
+                    let red = self.backgroundColors[Int(rand)][0]
+                    let green = self.backgroundColors[Int(rand)][1]
+                    let blue = self.backgroundColors[Int(rand)][2]
+                    
+                    self.scene?.backgroundColor = UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255.0), blue: CGFloat(blue/255.0), alpha: 1.0)
+                    
+                    //start playing a new (random) song
+                    let random = arc4random_uniform(UInt32(self.songs.count))
+                    
+                    let soundtrack = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(self.songs[Int(random)], ofType: "mp3")!)
+                    var audioPlayer = AVAudioPlayer()
+                    do{
+                        audioPlayer = try AVAudioPlayer(contentsOfURL: soundtrack, fileTypeHint: "mp3")
+                        audioPlayer.numberOfLoops = -1
+                        //audioPlayer.prepareToPlay()
+                    }catch{
+                        print("Error playing audio")
+                    }
+                    
+                    //reference and play
+                    self.audioPlayer = audioPlayer
+                    audioPlayer.play()
+
                     
                     self.currentGoal++
                 }
